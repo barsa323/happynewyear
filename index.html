@@ -1,0 +1,2050 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎄 Шинэ Жилийн Сугалаа 🎁</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Mountains+of+Christmas:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ШИНЭ ЖИЛИЙН ӨНГӨНИЙ СХЕМ */
+        :root {
+            --christmas-red: #c41e3a;       /* Шинэ жилийн улаан */
+            --christmas-green: #2d5a27;     /* Шинэ жилийн ногоон */
+            --snow-white: #f0f8ff;          /* Цасан цагаан */
+            --gold: #ffd700;                /* Алт */
+            --silver: #c0c0c0;              /* Мөнгө */
+            --dark-blue: #0a2e5c;           /* Шөнийн тэнгэр */
+            --light-blue: #4a90e2;          /* Цэлмэг хөх */
+            --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.15);
+            --shadow-glow: 0 0 25px rgba(255, 215, 0, 0.5);
+            --gradient-holiday: linear-gradient(135deg, #c41e3a 0%, #2d5a27 100%);
+            --gradient-snow: linear-gradient(135deg, #f0f8ff 0%, #e6f7ff 100%);
+            --gradient-night: linear-gradient(135deg, #0a2e5c 0%, #1a3d7c 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--gradient-night);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+            position: relative;
+            overflow-x: hidden;
+            /* FIXED: Бүхэл дэлгэц чичирэхгүй болгох */
+            overflow-y: auto;
+        }
+
+        /* ЦАСНЫ ЭФФЕКТ */
+        .snowflakes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .snowflake {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        /* ШИНЭ ЖИЛИЙН ЧАНАР ХЭВ ЗҮЙ */
+        .christmas-font {
+            font-family: 'Mountains of Christmas', cursive;
+        }
+
+        /* ГОЛ КОНТЕЙНЕР */
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 1400px;
+            width: 100%;
+            min-height: 90vh;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            z-index: 1;
+            border: 8px solid var(--christmas-red);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 20%);
+            /* FIXED: Контейнер чичирэхгүй болгох */
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        @media (min-width: 1024px) {
+            .main-container {
+                flex-direction: row;
+            }
+        }
+
+        /* ЗҮҮН ТАЛ - САНТАГИЙН ТАЛБАР */
+        .santa-sidebar {
+            width: 100%;
+            background: linear-gradient(180deg, var(--christmas-red) 0%, #8b0000 100%);
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @media (min-width: 1024px) {
+            .santa-sidebar {
+                width: 400px;
+                min-width: 400px;
+            }
+        }
+
+        .santa-sidebar::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: var(--snow-white);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .santa-header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .santa-icon {
+            font-size: 4rem;
+            margin-bottom: 10px;
+            text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .santa-title {
+            font-family: 'Mountains of Christmas', cursive;
+            font-weight: 700;
+            font-size: 2.5rem;
+            color: white;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+        }
+
+        .santa-subtitle {
+            color: var(--gold);
+            font-size: 1rem;
+            margin-top: 5px;
+            font-weight: 600;
+        }
+
+        /* ТОХИРУУЛГЫН ХЭСЭГ */
+        .settings-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-soft);
+            border: 3px solid var(--christmas-green);
+            position: relative;
+            z-index: 1;
+        }
+
+        .settings-card::before {
+            content: "🎄";
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            font-size: 2rem;
+            background: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--christmas-green);
+        }
+
+        .settings-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: var(--christmas-green);
+            font-size: 1.2rem;
+        }
+
+        .settings-title i {
+            color: var(--christmas-red);
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--dark-blue);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-with-icon {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-with-icon i {
+            position: absolute;
+            left: 15px;
+            color: var(--christmas-red);
+        }
+
+        .input-with-icon input {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            border: 2px solid var(--christmas-green);
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--christmas-red);
+            transition: all 0.3s;
+            background: var(--snow-white);
+        }
+
+        .input-with-icon input:focus {
+            outline: none;
+            border-color: var(--christmas-red);
+            box-shadow: 0 0 0 3px rgba(196, 30, 58, 0.1);
+        }
+
+        .reset-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(to right, var(--christmas-green), #1e7a1e);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .reset-btn:hover {
+            background: linear-gradient(to right, #1e7a1e, var(--christmas-green));
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ТҮҮХИЙН ХЭСЭГ - SCROLL БҮХИЙ */
+        .history-card {
+            flex-grow: 1;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-soft);
+            overflow: hidden;
+            border: 3px solid var(--gold);
+            position: relative;
+            z-index: 1;
+            min-height: 300px;
+            max-height: 400px;
+        }
+
+        .history-card::before {
+            content: "📜";
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            font-size: 2rem;
+            background: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--gold);
+        }
+
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--christmas-green);
+            flex-shrink: 0;
+        }
+
+        .history-title {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--christmas-red);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .clear-history {
+            background: var(--christmas-red);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+
+        .clear-history:hover {
+            background: #a00;
+            transform: scale(1.05);
+        }
+
+        /* HISTORY SCROLL CONTAINER */
+        .history-scroll-container {
+            flex-grow: 1;
+            overflow-y: auto;
+            position: relative;
+            border-radius: 10px;
+            background: #f9f9f9;
+            border: 2px solid #e0e0e0;
+            margin-top: 5px;
+            /* FIXED: Smooth scrolling */
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+        }
+
+        .history-scroll-container::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        .history-scroll-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+            margin: 5px 0;
+        }
+
+        .history-scroll-container::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, var(--christmas-red), var(--christmas-green));
+            border-radius: 10px;
+            border: 2px solid #f1f1f1;
+        }
+
+        .history-scroll-container::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #a00, #1e7a1e);
+        }
+
+        /* SCROLL INDICATOR */
+        .scroll-indicator {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            opacity: 0.7;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .scroll-arrow {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8rem;
+            animation: scrollBounce 2s infinite;
+        }
+
+        .scroll-arrow.up {
+            animation-delay: 0.5s;
+        }
+
+        .scroll-arrow.down {
+            animation-delay: 1s;
+        }
+
+        @keyframes scrollBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(5px); }
+        }
+
+        /* HISTORY LIST */
+        .history-list {
+            display: flex;
+            flex-direction: column;
+            padding: 15px;
+            gap: 12px;
+            min-height: 100%;
+        }
+
+        .history-item {
+            background: linear-gradient(to right, #fff8f8, #f8fff8);
+            border-radius: 12px;
+            padding: 15px;
+            border-left: 5px solid var(--christmas-red);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .history-item::before {
+            content: "🎁";
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            opacity: 0.1;
+        }
+
+        .history-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+        }
+
+        .history-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+        }
+
+        .history-time {
+            color: var(--dark-blue);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .history-count {
+            background: var(--christmas-red);
+            color: white;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
+        .history-numbers {
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            color: var(--dark-blue);
+            font-size: 1.1rem;
+            line-height: 1.4;
+            word-break: break-all;
+            margin-bottom: 10px;
+        }
+
+        .history-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 5px;
+        }
+
+        .copy-btn {
+            background: var(--christmas-green);
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: #1e7a1e;
+            transform: scale(1.05);
+        }
+
+        /* HISTORY EMPTY STATE */
+        .history-empty {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            text-align: center;
+            color: #aaa;
+            height: 100%;
+        }
+
+        .history-empty i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            opacity: 0.3;
+        }
+
+        .history-empty-text {
+            font-family: 'Mountains of Christmas', cursive;
+            font-size: 1.2rem;
+        }
+
+        /* SCROLL TO TOP/BOTTOM BUTTONS */
+        .scroll-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            gap: 10px;
+        }
+
+        .scroll-btn {
+            background: var(--light-blue);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .scroll-btn:hover {
+            background: #3a7bc8;
+            transform: translateY(-2px);
+        }
+
+        .scroll-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        /* БАРУУН ТАЛ - СУГАЛААНЫ ТАЛБАР */
+        .lottery-main {
+            flex-grow: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            background: var(--snow-white);
+            position: relative;
+            overflow: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(196, 30, 58, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(45, 90, 39, 0.05) 0%, transparent 50%);
+        }
+
+        .lottery-main::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--christmas-red),
+                var(--christmas-red) 20px,
+                var(--christmas-green) 20px,
+                var(--christmas-green) 40px
+            );
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-top: 20px;
+        }
+
+        .main-title {
+            font-family: 'Mountains of Christmas', cursive;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--christmas-red);
+            text-shadow: 3px 3px 0 rgba(45, 90, 39, 0.2);
+        }
+
+        .main-subtitle {
+            color: var(--dark-blue);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 600;
+        }
+
+        /* СТАТИСТИК ТАБ */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .stats-bar {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .stat-item {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            border: 2px solid;
+            transition: all 0.3s;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-item:nth-child(1) { border-color: var(--christmas-red); }
+        .stat-item:nth-child(2) { border-color: var(--christmas-green); }
+        .stat-item:nth-child(3) { border-color: var(--gold); }
+        .stat-item:nth-child(4) { border-color: var(--light-blue); }
+
+        .stat-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .stat-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+            color: var(--dark-blue);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--dark-blue);
+            opacity: 0.8;
+        }
+
+        /* ҮР ДҮНГИЙН ТАЛБАР - БҮРЭН ЧИЧИРЭЭГҮЙ */
+        .results-section {
+            flex-grow: 1;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            min-height: 250px;
+            border: 3px dashed var(--christmas-green);
+            overflow-y: auto;
+            background-image: 
+                linear-gradient(45deg, #f8fff8 25%, transparent 25%),
+                linear-gradient(-45deg, #f8fff8 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #f8fff8 75%),
+                linear-gradient(-45deg, transparent 75%, #f8fff8 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            /* FIXED: Бүрэн чичирээгүй болгох */
+            transition: none !important;
+            transform: translate3d(0, 0, 0);
+            will-change: transform;
+            -webkit-overflow-scrolling: touch;
+            overflow-anchor: none;
+        }
+
+        .placeholder-text {
+            color: #aaa;
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 40px;
+            font-family: 'Mountains of Christmas', cursive;
+        }
+
+        /* ШИНЭ ЖИЛИЙН БӨМБӨГ - БҮРЭН ЧИЧИРЭЭГҮЙ */
+        .christmas-ball {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 800;
+            font-size: 2rem;
+            position: relative;
+            /* FIXED: Чичирээгүй animation */
+            animation: smoothBallPop 0.7s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease;
+            border: 3px solid white;
+            overflow: hidden;
+            /* FIXED: Чичирээгүй болгох */
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            -webkit-font-smoothing: subpixel-antialiased;
+            will-change: transform, opacity;
+            animation-fill-mode: forwards;
+        }
+
+        .christmas-ball::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: var(--gold);
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .christmas-ball::after {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            border: 3px solid white;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* FIXED: Mouse hover үед чичирээхгүй болгосон */
+        .christmas-ball:hover {
+            transform: scale(1.05) translate3d(0, 0, 0);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        @keyframes smoothBallPop {
+            0% { 
+                transform: scale(0.3) translate3d(0, 0, 0); 
+                opacity: 0; 
+            }
+            70% { 
+                transform: scale(1.03) translate3d(0, 0, 0); 
+                opacity: 0.9;
+            }
+            100% { 
+                transform: scale(1) translate3d(0, 0, 0); 
+                opacity: 1; 
+            }
+        }
+
+        .ball-number {
+            position: relative;
+            z-index: 3;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            /* FIXED: Text чичирэхгүй */
+            display: block;
+            transform: translate3d(0, 0, 0);
+        }
+
+        .ball-decoration {
+            position: absolute;
+            font-size: 1.5rem;
+            z-index: 1;
+            opacity: 0.3;
+            transform: translate3d(0, 0, 0);
+        }
+
+        /* ТОВЧЛУУРУУД - ЧИЧИРЭЭГҮЙ */
+        .controls-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            /* FIXED: Товчлууруудын талбар чичирэхгүй */
+            transform: translate3d(0, 0, 0);
+        }
+
+        @media (min-width: 768px) {
+            .controls-section {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .draw-btn {
+            padding: 20px 10px;
+            border: none;
+            border-radius: 16px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            box-shadow: 0 8px 0 rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            font-family: 'Mountains of Christmas', cursive;
+            /* FIXED: Товчлуур чичирэхгүй */
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+        }
+
+        .draw-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .draw-btn:active {
+            transform: translateY(6px) translate3d(0, 0, 0);
+            box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .draw-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: translate3d(0, 0, 0) !important;
+            box-shadow: 0 8px 0 rgba(0, 0, 0, 0.2) !important;
+        }
+
+        /* FIXED: Hover үед жигд animation */
+        .draw-btn:hover:not(:disabled) {
+            transform: translateY(-3px) translate3d(0, 0, 0);
+            box-shadow: 0 12px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .draw-btn-1 {
+            background: linear-gradient(to bottom, #FFD700, #FFA500);
+            color: #8B0000;
+            border: 3px solid #FFA500;
+        }
+
+        .draw-btn-2 {
+            background: linear-gradient(to bottom, #C0C0C0, #A0A0A0);
+            color: #333;
+            border: 3px solid #A0A0A0;
+        }
+
+        .draw-btn-5 {
+            background: linear-gradient(to bottom, #c41e3a, #8b0000);
+            color: #FFF;
+            border: 3px solid #8b0000;
+        }
+
+        .draw-btn-10 {
+            background: linear-gradient(to bottom, #2d5a27, #1e3d1e);
+            color: #FFF;
+            border: 3px solid #1e3d1e;
+        }
+
+        .btn-icon {
+            font-size: 2.2rem;
+            transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            /* FIXED: Icon чичирэхгүй */
+            display: inline-block;
+            transform: translate3d(0, 0, 0);
+        }
+
+        /* FIXED: Товч дээр mouse очиход icon чичирэхгүй */
+        .draw-btn:hover:not(:disabled) .btn-icon {
+            transform: scale(1.05) translate3d(0, 0, 0);
+        }
+
+        .btn-text {
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+        }
+
+        .btn-count {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: white;
+            color: #333;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.9rem;
+            font-weight: 900;
+            border: 2px solid;
+            transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            transform: translate3d(0, 0, 0);
+        }
+
+        /* FIXED: Count number чичирэхгүй */
+        .draw-btn:hover:not(:disabled) .btn-count {
+            transform: scale(1.05) translate3d(0, 0, 0);
+        }
+
+        .draw-btn-1 .btn-count { border-color: #FFA500; }
+        .draw-btn-2 .btn-count { border-color: #A0A0A0; }
+        .draw-btn-5 .btn-count { border-color: #8b0000; }
+        .draw-btn-10 .btn-count { border-color: #1e3d1e; }
+
+        /* ХООЛОЙН ДЭЛГЭЦ */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--christmas-green);
+            color: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            z-index: 1000;
+            transform: translateX(400px);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            border-left: 6px solid var(--gold);
+            max-width: 350px;
+            /* FIXED: Notification чичирэхгүй */
+            transform: translate3d(400px, 0, 0);
+        }
+
+        .notification.show {
+            transform: translate3d(0, 0, 0);
+            opacity: 1;
+        }
+
+        .notification-icon {
+            font-size: 1.8rem;
+        }
+
+        .notification-content {
+            flex-grow: 1;
+        }
+
+        .notification-title {
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .notification-message {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .notification-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .notification-close:hover {
+            opacity: 1;
+        }
+
+        /* АДАПТИВ ДЭЛГЭРЭНГҮЙ */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+                overflow-y: auto;
+            }
+            
+            .main-container {
+                min-height: auto;
+                height: auto;
+            }
+            
+            .main-title {
+                font-size: 2.5rem;
+            }
+            
+            .stats-bar {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .christmas-ball {
+                width: 70px;
+                height: 70px;
+                font-size: 1.6rem;
+            }
+            
+            .draw-btn {
+                padding: 15px 5px;
+                font-size: 1rem;
+            }
+            
+            .btn-icon {
+                font-size: 1.8rem;
+            }
+            
+            .btn-text {
+                font-size: 1.1rem;
+            }
+            
+            .santa-sidebar {
+                min-width: 100%;
+            }
+            
+            .history-card {
+                max-height: 350px;
+            }
+        }
+
+        /* КОНФЕТТИ ЭФФЕКТ - ЧИЧИРЭЭГҮЙ */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            opacity: 0;
+            z-index: 2;
+            animation: smoothConfettiFall linear forwards;
+            transform: translate3d(0, 0, 0);
+        }
+
+        @keyframes smoothConfettiFall {
+            0% {
+                transform: translateY(0) rotate(0deg) translate3d(0, 0, 0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg) translate3d(0, 0, 0);
+                opacity: 0;
+            }
+        }
+
+        /* ШИНЭ ЖИЛИЙН ДЭЭЛСЭН ДЭВСГЭЭР */
+        .holiday-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .holiday-ornament {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.1;
+            animation: float 15s infinite linear;
+            transform: translate3d(0, 0, 0);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg) translate3d(0, 0, 0); }
+            50% { transform: translateY(-20px) rotate(180deg) translate3d(0, 0, 0); }
+            100% { transform: translateY(0) rotate(360deg) translate3d(0, 0, 0); }
+        }
+
+        /* ПРОГРЕСС БАР */
+        .progress-container {
+            margin-top: 20px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            height: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, var(--christmas-red), var(--christmas-green));
+            border-radius: 10px;
+            transition: width 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            transform: translate3d(0, 0, 0);
+        }
+
+        /* LOADING ANIMATION - ЧИЧИРЭЭГҮЙ */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s cubic-bezier(0.23, 1, 0.32, 1), visibility 0.3s ease;
+            transform: translate3d(0, 0, 0);
+        }
+
+        .loading-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .loading-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            min-width: 200px;
+            transform: translate3d(0, 0, 0);
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--christmas-red);
+            border-radius: 50%;
+            animation: smoothSpin 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+            margin: 0 auto 20px;
+            transform: translate3d(0, 0, 0);
+        }
+
+        @keyframes smoothSpin {
+            0% { transform: rotate(0deg) translate3d(0, 0, 0); }
+            100% { transform: rotate(360deg) translate3d(0, 0, 0); }
+        }
+
+        /* PERFORMANCE OPTIMIZATION */
+        .performance-fix {
+            transform: translate3d(0, 0, 0);
+            backface-visibility: hidden;
+            perspective: 1000;
+            -webkit-font-smoothing: subpixel-antialiased;
+        }
+
+        /* SCROLLBAR FIX */
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: var(--christmas-red) #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ЦАСНЫ ЭФФЕКТ -->
+    <div class="snowflakes" id="snowflakes"></div>
+    
+    <!-- ШИНЭ ЖИЛИЙН ДЭЭЛСЭН ДЭВСГЭЭР -->
+    <div class="holiday-background" id="holidayBg"></div>
+
+    <!-- LOADING OVERLAY -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <h3 class="christmas-font">Азтанг тодруулж байна...</h3>
+            <p id="loadingMessage">Түр хүлээнэ үү</p>
+        </div>
+    </div>
+
+    <!-- ГОЛ КОНТЕЙНЕР -->
+    <div class="main-container performance-fix">
+        <!-- ЗҮҮН ТАЛ - САНТАГИЙН ТАЛБАР -->
+        <div class="santa-sidebar performance-fix">
+            <div class="santa-header">
+                <div class="santa-icon">🎅</div>
+                <div class="santa-title christmas-font">САНТА КЛАУС</div>
+                <div class="santa-subtitle">Шинэ жилийн азтан тодруулагч</div>
+            </div>
+            
+            <div class="settings-card performance-fix">
+                <div class="settings-title">
+                    <i class="fas fa-candy-cane"></i>
+                    <span>Сугалааны Тохиргоо</span>
+                </div>
+                
+                <div class="input-group">
+                    <label for="maxLimit">
+                        <i class="fas fa-star"></i> Дээд хязгаар (1-?)
+                    </label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-hashtag"></i>
+                        <input type="number" id="maxLimit" value="2025" min="1" max="9999">
+                    </div>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+                </div>
+                
+                <button class="reset-btn performance-fix" onclick="resetLottery()">
+                    <i class="fas fa-snowflake"></i>
+                    <span>ШИНЭЧЛЭХ</span>
+                </button>
+            </div>
+            
+            <div class="history-card performance-fix">
+                <div class="history-header">
+                    <div class="history-title">
+                        <i class="fas fa-gifts"></i>
+                        <span>Өмнөх Азтанууд</span>
+                    </div>
+                    <button class="clear-history performance-fix" onclick="clearHistory()">
+                        <i class="fas fa-tree"></i>
+                        <span>Цэвэрлэх</span>
+                    </button>
+                </div>
+                
+                <div class="history-scroll-container" id="historyScrollContainer">
+                    <div class="scroll-indicator">
+                        <div class="scroll-arrow up">↑</div>
+                        <div class="scroll-arrow down">↓</div>
+                    </div>
+                    <div id="historyList" class="history-list">
+                        <div class="history-empty">
+                            <i class="fas fa-gift"></i>
+                            <div class="history-empty-text christmas-font">Сугалааны түүх энд харагдана</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="scroll-buttons">
+                    <button class="scroll-btn" onclick="scrollToTop()" id="scrollTopBtn" disabled>
+                        <i class="fas fa-arrow-up"></i>
+                        <span>Дээш</span>
+                    </button>
+                    <button class="scroll-btn" onclick="scrollToBottom()" id="scrollBottomBtn" disabled>
+                        <i class="fas fa-arrow-down"></i>
+                        <span>Доош</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- БАРУУН ТАЛ - СУГАЛАА -->
+        <div class="lottery-main performance-fix">
+            <div class="header-section">
+                <h1 class="main-title christmas-font">Шинэ Жилийн Сугалаа</h1>
+                <p class="main-subtitle">Сантагийн бөмбөгнөөс давхардахгүй азтай дугааруудыг сонгоно</p>
+            </div>
+            
+            <div class="stats-bar">
+                <div class="stat-item performance-fix">
+                    <div class="stat-icon">🎁</div>
+                    <div class="stat-value" id="totalNumbers">2025</div>
+                    <div class="stat-label">НИЙТ БЭЛЭГ</div>
+                </div>
+                <div class="stat-item performance-fix">
+                    <div class="stat-icon">🌟</div>
+                    <div class="stat-value" id="drawnNumbers">0</div>
+                    <div class="stat-label">ОЛДОГДСОН</div>
+                </div>
+                <div class="stat-item performance-fix">
+                    <div class="stat-icon">❄️</div>
+                    <div class="stat-value" id="remainingNumbers">2025</div>
+                    <div class="stat-label">ҮЛДСЭН</div>
+                </div>
+                <div class="stat-item performance-fix">
+                    <div class="stat-icon">📜</div>
+                    <div class="stat-value" id="historyCount">0</div>
+                    <div class="stat-label">ТҮҮХ</div>
+                </div>
+            </div>
+            
+            <div id="resultArea" class="results-section performance-fix">
+                <div class="placeholder-text christmas-font">
+                    <i class="fas fa-star" style="font-size: 3rem; margin-bottom: 15px; opacity: 0.3;"></i>
+                    <div>Дээрх товчлууруудаар сугалаагаа эхлүүлнэ үү!</div>
+                </div>
+            </div>
+            
+            <div class="controls-section performance-fix">
+                <button class="draw-btn draw-btn-1 christmas-font performance-fix" onclick="startLottery(1)">
+                    <span class="btn-icon">🎄</span>
+                    <span class="btn-text">1 АЗТАН</span>
+                    <span class="btn-count">1</span>
+                </button>
+                
+                <button class="draw-btn draw-btn-2 christmas-font performance-fix" onclick="startLottery(2)">
+                    <span class="btn-icon">🎅</span>
+                    <span class="btn-text">2 АЗТАН</span>
+                    <span class="btn-count">2</span>
+                </button>
+                
+                <button class="draw-btn draw-btn-5 christmas-font performance-fix" onclick="startLottery(5)">
+                    <span class="btn-icon">🦌</span>
+                    <span class="btn-text">5 АЗТАН</span>
+                    <span class="btn-count">5</span>
+                </button>
+                
+                <button class="draw-btn draw-btn-10 christmas-font performance-fix" onclick="startLottery(10)">
+                    <span class="btn-icon">✨</span>
+                    <span class="btn-text">10 АЗТАН</span>
+                    <span class="btn-count">10</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ХООЛОЙН ДЭЛГЭЦ -->
+    <div id="notification" class="notification performance-fix">
+        <div class="notification-icon">🎄</div>
+        <div class="notification-content">
+            <div class="notification-title" id="notificationTitle">Амжилттай!</div>
+            <div class="notification-message" id="notificationMessage">Тоонууд амжилттай хуулагдлаа!</div>
+        </div>
+        <button class="notification-close" onclick="closeNotification()">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <script>
+        // JAVASCRIPT LOGIC - SCROLL БҮХИЙ ХУВИЛБАР
+        const MIN_NUMBER = 1;
+        let drawnNumbers = new Set();
+        let history = [];
+        let notificationTimeout;
+        let isDrawing = false;
+        let animationFrameId = null;
+        
+        // DOM БЭЛДЭХ
+        document.addEventListener('DOMContentLoaded', () => {
+            createSnowflakes();
+            createHolidayBackground();
+            updateStats();
+            updateDrawButtons();
+            updateProgressBar();
+            updateScrollButtons();
+            
+            // Хязгаар input-д event listener нэмэх
+            const limitInput = document.getElementById('maxLimit');
+            limitInput.addEventListener('change', function() {
+                validateLimitInput();
+                resetLottery();
+            });
+            
+            limitInput.addEventListener('keyup', function(e) {
+                if (e.key === 'Enter') {
+                    validateLimitInput();
+                    resetLottery();
+                }
+            });
+            
+            // Scroll container-д event listener нэмэх
+            const scrollContainer = document.getElementById('historyScrollContainer');
+            if (scrollContainer) {
+                scrollContainer.addEventListener('scroll', () => {
+                    updateScrollButtons();
+                });
+            }
+            
+            // Шинэ жилийн мэндчилгээ
+            setTimeout(() => {
+                showNotification("Шинэ жилийн мэнд хүргэе! 🎉", "Аз жаргалын төлөө сугалаагаа эхлүүлээрэй!", "success");
+            }, 1000);
+            
+            // Scroll event чичирэхгүй болгох
+            window.addEventListener('scroll', function() {
+                if (animationFrameId) {
+                    cancelAnimationFrame(animationFrameId);
+                }
+                animationFrameId = requestAnimationFrame(function() {});
+            }, { passive: true });
+        });
+        
+        // ЦАС ҮҮСГЭХ
+        function createSnowflakes() {
+            const snowflakesContainer = document.getElementById('snowflakes');
+            const snowflakeCount = 100;
+            
+            for (let i = 0; i < snowflakeCount; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                
+                // Санамсаргүй хэмжээ
+                const size = Math.random() * 5 + 2;
+                snowflake.style.width = `${size}px`;
+                snowflake.style.height = `${size}px`;
+                
+                // Санамсаргүй байрлал
+                snowflake.style.left = `${Math.random() * 100}vw`;
+                
+                // Санамсаргүй уналтын хурд
+                const duration = Math.random() * 10 + 10;
+                snowflake.style.animationDuration = `${duration}s`;
+                
+                // Санамсаргүй хойшлуулах
+                snowflake.style.animationDelay = `${Math.random() * 5}s`;
+                
+                // Санамсаргүй opacity
+                snowflake.style.opacity = Math.random() * 0.7 + 0.3;
+                
+                snowflakesContainer.appendChild(snowflake);
+            }
+        }
+        
+        // ШИНЭ ЖИЛИЙН ДЭЭЛСЭН ДЭВСГЭЭР ҮҮСГЭХ
+        function createHolidayBackground() {
+            const bgContainer = document.getElementById('holidayBg');
+            const ornaments = ['🎄', '🎁', '🌟', '❄️', '🦌', '🔔', '⭐', '✨'];
+            const ornamentCount = 15;
+            
+            for (let i = 0; i < ornamentCount; i++) {
+                const ornament = document.createElement('div');
+                ornament.classList.add('holiday-ornament');
+                ornament.textContent = ornaments[Math.floor(Math.random() * ornaments.length)];
+                
+                // Санамсаргүй байрлал
+                ornament.style.left = `${Math.random() * 100}%`;
+                ornament.style.top = `${Math.random() * 100}%`;
+                
+                // Санамсаргүй хэмжээ
+                const size = Math.random() * 40 + 30;
+                ornament.style.fontSize = `${size}px`;
+                
+                // Санамсаргүй animation хурд
+                const duration = Math.random() * 20 + 20;
+                ornament.style.animationDuration = `${duration}s`;
+                
+                bgContainer.appendChild(ornament);
+            }
+        }
+        
+        // ХЯЗГААРЫН INPUT ШАЛГАХ
+        function validateLimitInput() {
+            const limitInput = document.getElementById('maxLimit');
+            let limit = parseInt(limitInput.value);
+            
+            if (isNaN(limit) || limit < 1) {
+                limitInput.value = 2025;
+                showNotification("Алдаа", "Дээд хязгаар 1-ээс их байх ёстой!", "warning");
+                return 2025;
+            }
+            
+            if (limit > 9999) {
+                limitInput.value = 9999;
+                showNotification("Анхаар", "Дээд хязгаар 9999-ээс хэтрэхгүй!", "warning");
+                return 9999;
+            }
+            
+            return limit;
+        }
+        
+        // СУГАЛАА ДАХИН ЭХЛҮҮЛЭХ
+        function resetLottery() {
+            if (isDrawing) return;
+            
+            if (drawnNumbers.size > 0) {
+                if (!confirm("Шинэ жилийн сугалааг дахин эхлүүлэх үү? Одоогийн түүх устана.")) {
+                    return;
+                }
+            }
+            
+            drawnNumbers.clear();
+            history = [];
+            
+            const historyList = document.getElementById('historyList');
+            historyList.innerHTML = `
+                <div class="history-empty">
+                    <i class="fas fa-gift"></i>
+                    <div class="history-empty-text christmas-font">Сугалааны түүх энд харагдана</div>
+                </div>
+            `;
+            
+            const resultArea = document.getElementById('resultArea');
+            resultArea.innerHTML = `
+                <div class="placeholder-text christmas-font">
+                    <i class="fas fa-star" style="font-size: 3rem; margin-bottom: 15px; opacity: 0.3;"></i>
+                    <div>Дээрх товчлууруудаар сугалаагаа эхлүүлнэ үү!</div>
+                </div>
+            `;
+            
+            updateStats();
+            updateDrawButtons();
+            updateProgressBar();
+            updateScrollButtons();
+            showNotification("Шинэчлэгдлээ", "Шинэ жилийн сугалаа амжилттай эхлэв!", "success");
+        }
+        
+        // ТҮҮХ ЦЭВЭРЛЭХ
+        function clearHistory() {
+            if (isDrawing) return;
+            
+            if (history.length === 0) return;
+            
+            if (!confirm("Шинэ жилийн түүхийг бүрэн устгах уу?")) return;
+            
+            history = [];
+            const historyList = document.getElementById('historyList');
+            historyList.innerHTML = `
+                <div class="history-empty">
+                    <i class="fas fa-gift"></i>
+                    <div class="history-empty-text christmas-font">Сугалааны түүх энд харагдана</div>
+                </div>
+            `;
+            
+            updateStats();
+            updateScrollButtons();
+            showNotification("Түүх цэвэрлэгдлээ", "Шинэ жилийн түүх амжилттай устгагдлаа", "success");
+        }
+        
+        // СУГАЛАА ЭХЛҮҮЛЭХ
+        function startLottery(count) {
+            if (isDrawing) {
+                showNotification("Түр хүлээнэ үү", "Өмнөх сугалаа дуусаагүй байна", "warning");
+                return;
+            }
+            
+            const MAX_NUMBER = validateLimitInput();
+            const resultArea = document.getElementById('resultArea');
+            const availableCount = MAX_NUMBER - drawnNumbers.size;
+            
+            if (count > availableCount) {
+                showNotification("Хангалтгүй", `Зөвхөн ${availableCount} ширхэг тоо үлдсэн байна!`, "warning");
+                return;
+            }
+            
+            // Сугалаа эхлүүлэх төлөвт оруулах
+            isDrawing = true;
+            showLoading(`Азтанг тодруулж байна... (${count} ширхэг)`);
+            
+            // Товчлууруудыг түр идэвхгүй болгох
+            disableDrawButtons(true);
+            
+            // FIXED: requestAnimationFrame ашиглан жигд эхлүүлэх
+            requestAnimationFrame(() => {
+                setTimeout(() => {
+                    let newDrawnNumbers = new Set();
+                    
+                    // Алгоритмыг сайжруулсан
+                    if (count <= availableCount / 2) {
+                        // Санамсаргүй сонголт
+                        let attempts = 0;
+                        const maxAttempts = count * 100;
+                        
+                        while (newDrawnNumbers.size < count && attempts < maxAttempts) {
+                            const randomNum = Math.floor(Math.random() * (MAX_NUMBER - MIN_NUMBER + 1)) + MIN_NUMBER;
+                            
+                            if (!drawnNumbers.has(randomNum) && !newDrawnNumbers.has(randomNum)) {
+                                newDrawnNumbers.add(randomNum);
+                            }
+                            attempts++;
+                        }
+                    } else {
+                        // Бүх боломжит тоонуудын жагсаалт үүсгээд санамсаргүй сонгох
+                        const availableNumbers = [];
+                        for (let i = MIN_NUMBER; i <= MAX_NUMBER; i++) {
+                            if (!drawnNumbers.has(i)) {
+                                availableNumbers.push(i);
+                            }
+                        }
+                        
+                        // Санамсаргүй холих
+                        for (let i = availableNumbers.length - 1; i > 0; i--) {
+                            const j = Math.floor(Math.random() * (i + 1));
+                            [availableNumbers[i], availableNumbers[j]] = [availableNumbers[j], availableNumbers[i]];
+                        }
+                        
+                        // Шаардлагатай тооны тоонуудыг сонгох
+                        newDrawnNumbers = new Set(availableNumbers.slice(0, count));
+                    }
+                    
+                    // Хэрэв хангалттай тоо сонгогдоогүй бол
+                    if (newDrawnNumbers.size < count) {
+                        hideLoading();
+                        isDrawing = false;
+                        disableDrawButtons(false);
+                        showNotification("Алдаа", "Хангалттай тоо сонгож чадсангүй. Дахин оролдоно уу.", "warning");
+                        return;
+                    }
+                    
+                    const finalNewNumbers = Array.from(newDrawnNumbers).sort((a, b) => a - b);
+                    finalNewNumbers.forEach(num => drawnNumbers.add(num));
+                    
+                    // FIXED: Үр дүнг харагдацтайгаар харуулах - чичирээгүй
+                    resultArea.innerHTML = '';
+                    
+                    // FIXED: Animation-уудыг жигд хийх
+                    const animationDelay = 150;
+                    
+                    // FIXED: requestAnimationFrame ашиглан жигд animation
+                    const animateBalls = (index) => {
+                        if (index < finalNewNumbers.length) {
+                            requestAnimationFrame(() => {
+                                createChristmasBall(finalNewNumbers[index], resultArea);
+                                
+                                // Дараагийн бөмбөг
+                                setTimeout(() => {
+                                    animateBalls(index + 1);
+                                }, animationDelay);
+                            });
+                        } else {
+                            // Бүх бөмбөг үүссэн
+                            requestAnimationFrame(() => {
+                                // Бага зэрэг хүлээж дараа нь бусад үйлдлүүд хийх
+                                setTimeout(() => {
+                                    // Түүхэд нэмэх
+                                    addToHistory(count, finalNewNumbers);
+                                    
+                                    // Статистик шинэчлэх
+                                    updateStats();
+                                    updateProgressBar();
+                                    updateScrollButtons();
+                                    
+                                    // Конфетти эффект
+                                    setTimeout(() => {
+                                        createConfetti();
+                                    }, 100);
+                                    
+                                    // Мэдэгдэл харуулах
+                                    showNotification("Амжилттай!", `${count} ширхэг азтан амжилттай тодорлоо!`, "success");
+                                    
+                                    // Loading хаах
+                                    hideLoading();
+                                    
+                                    // Сугалаа дуусгах
+                                    isDrawing = false;
+                                    disableDrawButtons(false);
+                                    
+                                    // Бүх тоо дууссан эсэхийг шалгах
+                                    if (availableCount - count === 0) {
+                                        setTimeout(() => {
+                                            showNotification("Баяр хүргэе! 🎉", `БҮХ БЭЛЭГ (1-${MAX_NUMBER}) ОЛДОГДЛОО!`, "success", 6000);
+                                            createConfetti(true);
+                                        }, 500);
+                                    }
+                                }, 300);
+                            });
+                        }
+                    };
+                    
+                    // Animation эхлүүлэх
+                    animateBalls(0);
+                }, 300);
+            });
+        }
+        
+        // ШИНЭ ЖИЛИЙН БӨМБӨГ ҮҮСГЭХ
+        function createChristmasBall(number, container) {
+            const ball = document.createElement('div');
+            ball.className = 'christmas-ball performance-fix';
+            
+            // Өнгө тодорхойлох
+            let ballColor;
+            const ballDecorations = ['🎄', '🎁', '🌟', '❄️', '🦌', '🔔'];
+            const decoration = ballDecorations[Math.floor(Math.random() * ballDecorations.length)];
+            
+            if (number % 7 === 0) {
+                ballColor = 'linear-gradient(135deg, #c41e3a, #8b0000)'; // Улаан
+            } else if (number % 5 === 0) {
+                ballColor = 'linear-gradient(135deg, #2d5a27, #1e3d1e)'; // Ногоон
+            } else if (number % 3 === 0) {
+                ballColor = 'linear-gradient(135deg, #ffd700, #ffa500)'; // Алт
+            } else if (number % 2 === 0) {
+                ballColor = 'linear-gradient(135deg, #4a90e2, #0a2e5c)'; // Хөх
+            } else {
+                ballColor = 'linear-gradient(135deg, #8a2be2, #4b0082)'; // Нилийн
+            }
+            
+            ball.style.background = ballColor;
+            
+            ball.innerHTML = `
+                <div class="ball-decoration">${decoration}</div>
+                <div class="ball-number">${number}</div>
+            `;
+            
+            // Бөмбөг дээр дарсан тоог хуулах
+            ball.addEventListener('click', () => {
+                if (!isDrawing) {
+                    copyToClipboard(number.toString());
+                }
+            });
+            
+            container.appendChild(ball);
+        }
+        
+        // LOADING ХЭСЭГ ҮЗҮҮЛЭХ
+        function showLoading(message = "Азтанг тодруулж байна...") {
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            const loadingMessage = document.getElementById('loadingMessage');
+            
+            loadingMessage.textContent = message;
+            loadingOverlay.classList.add('active');
+        }
+        
+        // LOADING ХЭСЭГ НУУХ
+        function hideLoading() {
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            loadingOverlay.classList.remove('active');
+        }
+        
+        // ТОВЧЛУУРУУДЫГ ИДЭВХГҮЙ/ИДЭВХТЭЙ БОЛГОХ
+        function disableDrawButtons(disabled) {
+            const drawButtons = document.querySelectorAll('.draw-btn');
+            drawButtons.forEach(btn => {
+                btn.disabled = disabled;
+            });
+            
+            const resetBtn = document.querySelector('.reset-btn');
+            const clearHistoryBtn = document.querySelector('.clear-history');
+            
+            if (resetBtn) resetBtn.disabled = disabled;
+            if (clearHistoryBtn) clearHistoryBtn.disabled = disabled;
+        }
+        
+        // КОНФЕТТИ ЭФФЕКТ ҮҮСГЭХ
+        function createConfetti(isMajor = false) {
+            const confettiCount = isMajor ? 200 : 50;
+            const colors = ['#c41e3a', '#2d5a27', '#ffd700', '#4a90e2', '#ffffff'];
+            
+            requestAnimationFrame(() => {
+                for (let i = 0; i < confettiCount; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('confetti');
+                    
+                    // Өнгө
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    
+                    // Хэмжээ
+                    const size = Math.random() * 10 + 5;
+                    confetti.style.width = `${size}px`;
+                    confetti.style.height = `${size}px`;
+                    
+                    // Хэлбэр
+                    if (Math.random() > 0.5) {
+                        confetti.style.borderRadius = '50%';
+                    }
+                    
+                    // Байрлал
+                    confetti.style.left = `${Math.random() * 100}%`;
+                    confetti.style.top = `-10px`;
+                    
+                    // Animation
+                    const animationDuration = Math.random() * 3 + 2;
+                    const animationDelay = Math.random() * 1;
+                    
+                    confetti.style.animation = `smoothConfettiFall ${animationDuration}s ease-out ${animationDelay}s forwards`;
+                    
+                    document.body.appendChild(confetti);
+                    
+                    // Конфетти устгах
+                    setTimeout(() => {
+                        if (confetti.parentNode) {
+                            confetti.parentNode.removeChild(confetti);
+                        }
+                    }, (animationDuration + animationDelay) * 1000);
+                }
+            });
+        }
+        
+        // СТАТИСТИК ШИНЭЧЛЭХ
+        function updateStats() {
+            const MAX_NUMBER = validateLimitInput();
+            const drawnCount = drawnNumbers.size;
+            const remainingCount = MAX_NUMBER - drawnCount;
+            
+            requestAnimationFrame(() => {
+                document.getElementById('totalNumbers').textContent = MAX_NUMBER.toLocaleString();
+                document.getElementById('drawnNumbers').textContent = drawnCount.toLocaleString();
+                document.getElementById('remainingNumbers').textContent = remainingCount.toLocaleString();
+                document.getElementById('historyCount').textContent = history.length.toLocaleString();
+            });
+        }
+        
+        // ПРОГРЕСС БАР ШИНЭЧЛЭХ
+        function updateProgressBar() {
+            const MAX_NUMBER = validateLimitInput();
+            const drawnCount = drawnNumbers.size;
+            const progressPercent = (drawnCount / MAX_NUMBER) * 100;
+            
+            const progressBar = document.getElementById('progressBar');
+            
+            requestAnimationFrame(() => {
+                progressBar.style.width = `${progressPercent}%`;
+                
+                // Өнгө өөрчлөх
+                if (progressPercent < 30) {
+                    progressBar.style.background = 'linear-gradient(to right, var(--christmas-red), #ff6b6b)';
+                } else if (progressPercent < 70) {
+                    progressBar.style.background = 'linear-gradient(to right, var(--christmas-red), var(--gold))';
+                } else {
+                    progressBar.style.background = 'linear-gradient(to right, var(--christmas-red), var(--christmas-green))';
+                }
+            });
+        }
+        
+        // ТОВЧЛУУРУУДЫН ТОХИРГОО ШИНЭЧЛЭХ
+        function updateDrawButtons() {
+            const MAX_NUMBER = validateLimitInput();
+            const availableCount = MAX_NUMBER - drawnNumbers.size;
+            const drawButtons = document.querySelectorAll('.draw-btn');
+            
+            requestAnimationFrame(() => {
+                drawButtons.forEach(btn => {
+                    const count = parseInt(btn.querySelector('.btn-count').textContent);
+                    
+                    if (count > availableCount) {
+                        btn.disabled = true;
+                        btn.title = `Зөвхөн ${availableCount} тоо үлдсэн`;
+                    } else if (!isDrawing) {
+                        btn.disabled = false;
+                        btn.title = `${count} ширхэг азтан тодруулах`;
+                    }
+                });
+            });
+        }
+        
+        // SCROLL ТОВЧЛУУРУУДЫН ТОХИРГОО ШИНЭЧЛЭХ
+        function updateScrollButtons() {
+            const scrollContainer = document.getElementById('historyScrollContainer');
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+            const scrollBottomBtn = document.getElementById('scrollBottomBtn');
+            
+            if (!scrollContainer || !scrollTopBtn || !scrollBottomBtn) return;
+            
+            const scrollTop = scrollContainer.scrollTop;
+            const scrollHeight = scrollContainer.scrollHeight;
+            const clientHeight = scrollContainer.clientHeight;
+            
+            // Scroll дээш товчлуур
+            scrollTopBtn.disabled = scrollTop === 0;
+            
+            // Scroll доош товчлуур
+            scrollBottomBtn.disabled = Math.ceil(scrollTop + clientHeight) >= scrollHeight - 1;
+            
+            // Хэрэв түүх байхгүй бол товчлууруудыг идэвхгүй болгох
+            if (history.length === 0) {
+                scrollTopBtn.disabled = true;
+                scrollBottomBtn.disabled = true;
+            }
+        }
+        
+        // SCROLL ДЭЭШ ХИЙХ
+        function scrollToTop() {
+            const scrollContainer = document.getElementById('historyScrollContainer');
+            if (!scrollContainer) return;
+            
+            scrollContainer.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // SCROLL ДООШ ХИЙХ
+        function scrollToBottom() {
+            const scrollContainer = document.getElementById('historyScrollContainer');
+            if (!scrollContainer) return;
+            
+            scrollContainer.scrollTo({
+                top: scrollContainer.scrollHeight,
+                behavior: 'smooth'
+            });
+        }
+        
+        // ТҮҮХЭД НЭМЭХ
+        function addToHistory(count, numberArray) {
+            const historyList = document.getElementById('historyList');
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('mn-MN', { 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit' 
+            });
+            const dateString = now.toLocaleDateString('mn-MN', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+            });
+            
+            const numbersStr = numberArray.join(', ');
+            
+            // Placeholder устгах
+            if (historyList.querySelector('.history-empty')) {
+                historyList.innerHTML = '';
+            }
+            
+            // Түүхийн элемент үүсгэх
+            const historyEntry = {
+                id: Date.now(),
+                time: timeString,
+                date: dateString,
+                count: count,
+                numbers: numberArray,
+                numbersStr: numbersStr
+            };
+            
+            history.unshift(historyEntry);
+            
+            // Хамгийн сүүлийн 50 түүх л хадгалах
+            if (history.length > 50) {
+                history.pop();
+            }
+            
+            // Түүхийн жагсаалтыг шинэчлэх
+            renderHistory();
+        }
+        
+        // ТҮҮХИЙГ ДЭЛГЭРЭНГҮЙ ХАРУУЛАХ
+        function renderHistory() {
+            const historyList = document.getElementById('historyList');
+            
+            requestAnimationFrame(() => {
+                historyList.innerHTML = '';
+                
+                history.forEach(entry => {
+                    const item = document.createElement('div');
+                    item.className = 'history-item performance-fix';
+                    item.dataset.id = entry.id;
+                    
+                    item.innerHTML = `
+                        <div class="history-meta">
+                            <div class="history-time">
+                                <i class="far fa-clock"></i> ${entry.time} | ${entry.date}
+                            </div>
+                            <div class="history-count">${entry.count} АЗТАН</div>
+                        </div>
+                        <div class="history-numbers">
+                            ${entry.numbersStr}
+                        </div>
+                        <div class="history-actions">
+                            <button class="copy-btn performance-fix" onclick="copyToClipboard('${entry.numbersStr.replace(/'/g, "\\'")}')">
+                                <i class="far fa-copy"></i> Хуулах
+                            </button>
+                        </div>
+                    `;
+                    
+                    historyList.appendChild(item);
+                });
+                
+                // Scroll доош шилжүүлэх (шинэ түүх нэмэгдсэн үед)
+                if (history.length > 0) {
+                    setTimeout(() => {
+                        const scrollContainer = document.getElementById('historyScrollContainer');
+                        if (scrollContainer) {
+                            scrollContainer.scrollTop = 0;
+                        }
+                    }, 100);
+                }
+            });
+        }
+        
+        // ХУУЛАХ ФУНКЦ
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification("Хуулагдлаа", `Тоонууд: ${text}`, "success");
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                showNotification("Алдаа", "Хуулахад алдаа гарлаа!", "warning");
+            });
+        }
+        
+        // ХООЛОЙН ДЭЛГЭЦ ХАРУУЛАХ
+        function showNotification(title, message, type = "success", duration = 4000) {
+            const notification = document.getElementById('notification');
+            const notificationTitle = document.getElementById('notificationTitle');
+            const notificationMessage = document.getElementById('notificationMessage');
+            
+            // Өнгө тодорхойлох
+            if (type === "success") {
+                notification.style.background = "var(--christmas-green)";
+                notification.style.borderLeftColor = "var(--gold)";
+            } else if (type === "warning") {
+                notification.style.background = "var(--christmas-red)";
+                notification.style.borderLeftColor = "var(--gold)";
+            } else {
+                notification.style.background = "var(--light-blue)";
+                notification.style.borderLeftColor = "var(--gold)";
+            }
+            
+            notificationTitle.textContent = title;
+            notificationMessage.textContent = message;
+            
+            // Өмнөх timeout цэвэрлэх
+            if (notificationTimeout) {
+                clearTimeout(notificationTimeout);
+            }
+            
+            // Дэлгэц харуулах
+            notification.classList.add('show');
+            
+            // Хугацааны дараа нуух
+            notificationTimeout = setTimeout(() => {
+                notification.classList.remove('show');
+            }, duration);
+        }
+        
+        // ХООЛОЙН ДЭЛГЭЦ ХААХ
+        function closeNotification() {
+            const notification = document.getElementById('notification');
+            notification.classList.remove('show');
+            
+            if (notificationTimeout) {
+                clearTimeout(notificationTimeout);
+            }
+        }
+    </script>
+</body>
+</html>
